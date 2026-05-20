@@ -4,84 +4,160 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BOLD Management</title>
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0a0a0a;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
       color: white;
+    }
+
+    .hero {
       text-align: center;
+      padding: 160px 20px 120px;
     }
-    .container {
-      padding: 60px 20px;
-    }
+
     h1 {
-      font-size: 48px;
+      font-size: 64px;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
     }
-    p {
+
+    .subtitle {
       color: #aaa;
-      max-width: 600px;
-      margin: 20px auto;
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
       line-height: 1.6;
     }
+
     .btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
+      margin-top: 40px;
+      padding: 16px 34px;
       background: white;
       color: black;
       text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: 0.3s;
     }
-    .section {
-      margin-top: 80px;
+
+    .btn:hover {
+      background: #ddd;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 100px 20px;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #aaa;
+      line-height: 1.7;
+      max-width: 700px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .card {
+      background: #0f0f0f;
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid #222;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #444;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px;
+      color: #555;
+      font-size: 14px;
     }
   </style>
 </head>
+
 <body>
 
-<div class="container">
+<div class="hero">
   <h1>BOLD MANAGEMENT</h1>
-  <p>
-    Creator Management & Brand Deals.  
-    Wir unterstützen Creator dabei, langfristige Kooperationen aufzubauen und strategisch zu wachsen.
+  <p class="subtitle">
+    Creator Management & Brand Deals. Wir helfen Creatorn dabei,
+    starke Kooperationen aufzubauen und langfristig als Marke zu wachsen.
   </p>
-  <a href="mailto:creator@bold-management.de" class="btn">Kontakt aufnehmen</a>
+  <a href="mailto:creator@bold-management.de" class="btn">
+    Kontakt aufnehmen
+  </a>
+</div>
 
-  <div class="section">
-    <h2>Unsere Leistungen</h2>
-    <p>
-      Brand Deals · Vertragsverhandlungen · Wachstum · Strategie
-    </p>
+<div class="container">
+
+  <h2>Unsere Leistungen</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Brand Deals</h3>
+      <p>Wir verbinden dich mit starken Marken.</p>
+    </div>
+
+    <div class="card">
+      <h3>Verhandlungen</h3>
+      <p>Wir holen das Maximum aus deinen Kooperationen heraus.</p>
+    </div>
+
+    <div class="card">
+      <h3>Strategie</h3>
+      <p>Wir bauen dich langfristig als Marke auf.</p>
+    </div>
+
+    <div class="card">
+      <h3>Management</h3>
+      <p>Persönliche Betreuung auf Augenhöhe.</p>
+    </div>
   </div>
 
-  <div class="section">
-    <h2>Für Creator</h2>
-    <p>
-      Wir suchen Creator mit Potenzial in den Bereichen Beauty, Lifestyle, Fashion & Fitness.
-    </p>
-  </div>
+  <h2>Für Creator</h2>
+  <p>
+    Du möchtest professionell mit Marken arbeiten und dein Profil auf das nächste Level bringen?
+    Dann lass uns gemeinsam wachsen.
+  </p>
 
-  <div class="section">
-    <h2>Kontakt</h2>
-    <p>
-      Instagram: @boldmgment <br>
-      E-Mail: creator@bold-management.de
-    </p>
-  </div>
+  <h2>Kontakt</h2>
+  <p>
+    Instagram: @boldmgment <br>
+    E-Mail: creator@bold-management.de
+  </p>
 
-  <div class="section">
-    <h2>Impressum</h2>
-    <p>
-      Bold Management<br>
-      Inhaber: Amin Kühn<br>
-      Linsenbergstraße 9<br>
-      35586 Wetzlar
-    </p>
-  </div>
+  <h2>Impressum</h2>
+  <p>
+    Bold Management<br>
+    Inhaber: Amin Kühn<br>
+    Linsenbergstraße 9<br>
+    35586 Wetzlar
+  </p>
 
 </div>
+
+<footer>
+  © 2026 Bold Management
+</footer>
 
 </body>
 </html>
