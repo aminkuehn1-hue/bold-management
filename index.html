@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BOLD Management</title>
   <style>
+    :root {
+      --primary: #fff;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: #000;
       color: white;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     nav {
@@ -18,185 +24,227 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(12px);
-      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(16px);
+      padding: 18px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 100;
+      z-index: 1000;
       border-bottom: 1px solid #222;
     }
 
     .logo {
-      font-weight: 700;
-      font-size: 22px;
-      letter-spacing: -0.5px;
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: -1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
     }
 
     .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 180px 20px 140px;
+      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), #111;
+    }
+
+    .hero-content {
+      max-width: 860px;
+      padding: 0 20px;
+      z-index: 2;
     }
 
     h1 {
-      font-size: 72px;
-      letter-spacing: -2.5px;
-      margin: 0 0 24px;
+      font-size: clamp(52px, 8vw, 92px);
+      font-weight: 800;
+      letter-spacing: -3.5px;
       line-height: 1.05;
+      margin-bottom: 24px;
     }
 
     .subtitle {
-      color: #aaa;
-      font-size: 20px;
+      font-size: 21px;
+      color: #bbb;
       max-width: 620px;
-      margin: 0 auto;
-      line-height: 1.6;
+      margin: 0 auto 50px;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 50px;
-      padding: 18px 40px;
+      padding: 18px 48px;
       background: white;
       color: black;
-      text-decoration: none;
-      border-radius: 999px;
       font-weight: 700;
-      font-size: 16px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 17px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .btn:hover {
-      background: #f1f1f1;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(255,255,255,0.15);
     }
 
     .container {
-      max-width: 1140px;
-      margin: auto;
-      padding: 80px 20px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 100px 20px;
     }
 
     h2 {
-      font-size: 38px;
-      margin-bottom: 40px;
-      letter-spacing: -1px;
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      margin-bottom: 60px;
+      text-align: center;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
     }
 
     .card {
       background: #0a0a0a;
-      padding: 36px 32px;
-      border-radius: 24px;
+      padding: 42px 34px;
+      border-radius: 28px;
       border: 1px solid #222;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .card:hover {
-      transform: translateY(-8px);
-      border-color: #444;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      transform: translateY(-12px);
+      border-color: #555;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
     }
 
     .card h3 {
-      margin: 0 0 16px;
-      font-size: 22px;
-      letter-spacing: -0.5px;
+      font-size: 24px;
+      margin-bottom: 16px;
+      letter-spacing: -0.8px;
     }
 
-    .card p {
-      color: #aaa;
-      margin: 0;
-      font-size: 15.5px;
-    }
-
-    footer {
+    .section-title {
       text-align: center;
-      padding: 70px 20px;
-      color: #555;
-      font-size: 14px;
-      border-top: 1px solid #222;
+      margin-bottom: 80px;
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">BOLD</div>
-</nav>
-
-<div class="hero">
-  <h1>BOLD<br>MANAGEMENT</h1>
-  <p class="subtitle">
-    Creator Management & Brand Deals.<br>
-    Wir helfen Creatorn dabei, starke Kooperationen aufzubauen und langfristig als Marke zu wachsen.
-  </p>
-  <a href="mailto:creator@bold-management.de" class="btn">
-    Kontakt aufnehmen
-  </a>
-</div>
-
-<div class="container">
-
-  <h2>Unsere Leistungen</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Brand Deals</h3>
-      <p>Wir verbinden dich mit starken Marken und schaffen langfristige Partnerschaften.</p>
+  <nav>
+    <div class="logo">BOLD</div>
+    <div class="nav-links">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#creator">Für Creator</a>
+      <a href="#ueber">Über uns</a>
+      <a href="#kontakt">Kontakt</a>
     </div>
+  </nav>
 
-    <div class="card">
-      <h3>Verhandlungen</h3>
-      <p>Wir holen das Maximum aus deinen Kooperationen heraus.</p>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>BOLD<br>MANAGEMENT</h1>
+      <p class="subtitle">
+        Creator Management &amp; Brand Deals.<br>
+        Wir machen aus starken Creatorn echte Marken.
+      </p>
+      <a href="mailto:creator@bold-management.de" class="btn">
+        Jetzt Kontakt aufnehmen
+      </a>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Strategie</h3>
-      <p>Wir bauen dich langfristig als starke Marke auf.</p>
-    </div>
-
-    <div class="card">
-      <h3>Management</h3>
-      <p>Persönliche Betreuung auf Augenhöhe mit klarem Fokus auf dein Wachstum.</p>
+  <div class="container" id="leistungen">
+    <h2>Unsere Leistungen</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Brand Deals</h3>
+        <p>Wir verbinden dich mit den richtigen Marken und schaffen langfristige, lukrative Partnerschaften.</p>
+      </div>
+      <div class="card">
+        <h3>Verhandlungen</h3>
+        <p>Professionelle Verhandlungsführung – wir holen das Maximum für dich raus.</p>
+      </div>
+      <div class="card">
+        <h3>Strategie &amp; Markenaufbau</h3>
+        <p>Positionierung, Content-Strategie und langfristiger Markenaufbau.</p>
+      </div>
+      <div class="card">
+        <h3>Persönliches Management</h3>
+        <p>Individuelle Betreuung, Karriereplanung und tägliche Unterstützung auf Augenhöhe.</p>
+      </div>
     </div>
   </div>
 
-  <h2 style="margin-top: 100px;">Für Creator</h2>
-  <p style="max-width: 620px; color: #aaa;">
-    Du möchtest professionell mit Marken zusammenarbeiten und dein Profil auf das nächste Level bringen? <br>
-    Dann lass uns gemeinsam wachsen.
-  </p>
+  <div class="container" id="creator" style="background:#050505;">
+    <h2>Für Creator</h2>
+    <p style="max-width: 680px; margin: 0 auto 60px; text-align:center; font-size:19px; color:#ccc;">
+      Du bist Creator und willst professionell mit Marken arbeiten, bessere Deals abschließen und nachhaltig wachsen? 
+      Dann bist du bei uns genau richtig.
+    </p>
+    <div style="text-align:center;">
+      <a href="mailto:creator@bold-management.de" class="btn">Bewerben als Creator</a>
+    </div>
+  </div>
 
-  <h2 style="margin-top: 100px;">Kontakt</h2>
-  <p style="color: #ddd; font-size: 17px;">
-    Instagram: <strong>@boldmgment</strong><br>
-    E-Mail: creator@bold-management.de
-  </p>
+  <div class="container" id="ueber">
+    <h2>Warum BOLD?</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Persönlich</h3>
+        <p>Keine Massenabfertigung. Jeder Creator bekommt echte 1:1 Betreuung.</p>
+      </div>
+      <div class="card">
+        <h3>Ergebnisorientiert</h3>
+        <p>Wir denken wie Unternehmer – weil wir selbst welche sind.</p>
+      </div>
+      <div class="card">
+        <h3>Netzwerk</h3>
+        <p>Zugang zu starken Marken und anderen Top-Creatorn.</p>
+      </div>
+    </div>
+  </div>
 
-  <h2 style="margin-top: 100px;">Impressum</h2>
-  <p style="color: #888; font-size: 15px;">
-    Bold Management<br>
-    Inhaber: Amin Kühn<br>
-    Linsenbergstraße 9<br>
-    35586 Wetzlar
-  </p>
+  <div class="container" id="kontakt">
+    <h2>Kontakt</h2>
+    <p style="font-size: 19px; text-align:center; color:#ddd;">
+      Instagram: <strong>@boldmgment</strong><br><br>
+      E-Mail: <strong>creator@bold-management.de</strong>
+    </p>
+    
+    <h2 style="margin-top: 120px;">Impressum</h2>
+    <p style="color:#777; text-align:center;">
+      Bold Management<br>
+      Inhaber: Amin Kühn<br>
+      Linsenbergstraße 9<br>
+      35586 Wetzlar
+    </p>
+  </div>
 
-</div>
-
-<footer>
-  © 2026 Bold Management
-</footer>
+  <footer style="text-align:center; padding:60px 20px; color:#555; font-size:14px; border-top:1px solid #222;">
+    © 2026 Bold Management • Alle Rechte vorbehalten
+  </footer>
 
 </body>
 </html>
