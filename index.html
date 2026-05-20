@@ -32,9 +32,9 @@
     }
 
     .logo {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 800;
-      letter-spacing: -1px;
+      letter-spacing: -1.5px;
     }
 
     .hero {
@@ -84,8 +84,7 @@
       transition: all 0.4s;
     }
 
-    .btn-primary:hover { transform: translateY(-3px); }
-    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+    .btn-primary:hover, .btn-secondary:hover { transform: translateY(-3px); }
 
     .profile-card {
       background: #111;
@@ -93,13 +92,6 @@
       border-radius: 24px;
       padding: 32px;
       height: fit-content;
-    }
-
-    .profile-card h3 {
-      font-size: 15px;
-      letter-spacing: 2px;
-      opacity: 0.6;
-      margin-bottom: 8px;
     }
 
     .card {
@@ -126,9 +118,10 @@
       font-weight: 800;
       letter-spacing: -2px;
       margin-bottom: 70px;
+      text-align: center;
     }
 
-    .grid-2 {
+    .grid-3 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 24px;
@@ -151,6 +144,11 @@
       font-size: 14px;
       opacity: 0.5;
       margin-bottom: 12px;
+    }
+
+    .centered-card {
+      max-width: 340px;
+      margin: 40px auto 0;
     }
   </style>
 </head>
@@ -186,7 +184,7 @@
   <!-- LEISTUNGEN -->
   <div class="container" id="leistungen">
     <h2>Was wir für Creator übernehmen</h2>
-    <div class="grid-2">
+    <div class="grid-3">
       <div class="card">
         <h3 style="margin-bottom:16px; font-size:24px;">Brand Deals</h3>
         <p>Wir verbinden Creator mit passenden Marken und schaffen Kooperationen mit langfristigem Potenzial.</p>
@@ -199,6 +197,10 @@
         <h3 style="margin-bottom:16px; font-size:24px;">Strategie & Wachstum</h3>
         <p>Gemeinsam entwickeln wir eine klare Positionierung, damit Creator nachhaltig wachsen können.</p>
       </div>
+    </div>
+
+    <!-- 4. Karte zentriert darunter -->
+    <div class="centered-card">
       <div class="card">
         <h3 style="margin-bottom:16px; font-size:24px;">Persönliche Betreuung</h3>
         <p>Bei uns gibt es keine Massenabfertigung – wir arbeiten eng, direkt und langfristig mit ausgewählten Talenten zusammen.</p>
