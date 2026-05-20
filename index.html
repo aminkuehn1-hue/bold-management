@@ -1,163 +1,273 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BOLD Management</title>
+export default function BoldManagementLandingPage() {
+  const services = [
+    {
+      title: "Brand Deals",
+      text: "Wir verbinden Creator mit passenden Marken und schaffen Kooperationen mit langfristigem Potenzial.",
+    },
+    {
+      title: "Vertragsverhandlungen",
+      text: "Wir verhandeln fair, transparent und mit dem Ziel, den bestmöglichen Wert für unsere Creator herauszuholen.",
+    },
+    {
+      title: "Strategie & Wachstum",
+      text: "Gemeinsam entwickeln wir eine klare Positionierung, damit Creator nachhaltig wachsen können.",
+    },
+    {
+      title: "Persönliche Betreuung",
+      text: "Bei uns gibt es keine Massenabfertigung – wir arbeiten eng, direkt und langfristig mit ausgewählten Talents zusammen.",
+    },
+  ];
 
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #000;
-      color: white;
-    }
+  const steps = [
+    {
+      number: "01",
+      title: "Erstes Kennenlernen",
+      text: "In einem unverbindlichen Gespräch schauen wir, ob es menschlich und strategisch passt.",
+    },
+    {
+      number: "02",
+      title: "Individuelle Ausrichtung",
+      text: "Wir analysieren Content, Potenzial und Positionierung, um die richtige Richtung festzulegen.",
+    },
+    {
+      number: "03",
+      title: "Gemeinsames Wachstum",
+      text: "Anschließend begleiten wir Creator aktiv bei Kooperationen, Verhandlungen und Weiterentwicklung.",
+    },
+  ];
 
-    .hero {
-      text-align: center;
-      padding: 160px 20px 120px;
-    }
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <section className="relative overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.08),transparent_25%)]" />
+        <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
+          <div className="grid items-center gap-14 md:grid-cols-2">
+            <div>
+              <p className="mb-4 text-sm uppercase tracking-[0.35em] text-white/60">
+                Bold Management
+              </p>
+              <h1 className="max-w-2xl text-5xl font-semibold leading-tight md:text-7xl">
+                Creator Management mit klarer Strategie.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-white/70">
+                Wir unterstützen Creator dabei, starke Markenpartnerschaften aufzubauen,
+                professionell zu wachsen und ihr Potenzial langfristig zu entfalten.
+              </p>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href="#contact"
+                  className="rounded-2xl bg-white px-6 py-3 text-center text-sm font-medium text-black transition hover:opacity-90"
+                >
+                  Jetzt Kontakt aufnehmen
+                </a>
+                <a
+                  href="#services"
+                  className="rounded-2xl border border-white/20 px-6 py-3 text-center text-sm font-medium text-white transition hover:bg-white/5"
+                >
+                  Leistungen ansehen
+                </a>
+              </div>
+            </div>
 
-    h1 {
-      font-size: 64px;
-      letter-spacing: -1px;
-      margin-bottom: 20px;
-    }
+            <div className="md:justify-self-end">
+              <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-sm">
+                <div className="mb-10 flex items-center justify-between">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.3em] text-white/50">Agenturprofil</p>
+                    <p className="mt-2 text-2xl font-semibold">BOLD</p>
+                  </div>
+                  <div className="h-12 w-12 rounded-2xl border border-white/15 bg-white/10" />
+                </div>
 
-    .subtitle {
-      color: #aaa;
-      font-size: 18px;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-    }
+                <div className="space-y-4 text-sm text-white/75">
+                  <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                    Creator Management & Brand Partnerships
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                    Persönlich, modern und langfristig gedacht
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                    Fokus auf ausgewählte Creator mit echtem Wachstumspotenzial
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    .btn {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 16px 34px;
-      background: white;
-      color: black;
-      text-decoration: none;
-      border-radius: 999px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10" id="services">
+        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm uppercase tracking-[0.3em] text-white/50">Leistungen</p>
+            <h2 className="mt-3 text-3xl font-semibold md:text-5xl">Was wir für Creator übernehmen</h2>
+          </div>
+          <p className="max-w-xl text-white/65">
+            Unser Ziel ist nicht nur die Vermittlung einzelner Kooperationen, sondern der Aufbau einer klaren, nachhaltigen Creator-Marke.
+          </p>
+        </div>
 
-    .btn:hover {
-      background: #ddd;
-    }
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-lg transition hover:-translate-y-1 hover:bg-white/[0.07]"
+            >
+              <h3 className="text-xl font-semibold">{service.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-white/65">{service.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 100px 20px;
-    }
+      <section className="border-y border-white/10 bg-white/[0.03]">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+          <div className="mb-12 max-w-2xl">
+            <p className="text-sm uppercase tracking-[0.3em] text-white/50">Ablauf</p>
+            <h2 className="mt-3 text-3xl font-semibold md:text-5xl">So arbeiten wir zusammen</h2>
+          </div>
 
-    h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
+          <div className="grid gap-6 md:grid-cols-3">
+            {steps.map((step) => (
+              <div key={step.number} className="rounded-[2rem] border border-white/10 bg-black/30 p-8">
+                <p className="text-sm tracking-[0.3em] text-white/40">{step.number}</p>
+                <h3 className="mt-4 text-2xl font-semibold">{step.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-white/65">{step.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-    p {
-      color: #aaa;
-      line-height: 1.7;
-      max-width: 700px;
-    }
+      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10">
+            <p className="text-sm uppercase tracking-[0.3em] text-white/50">Für Creator</p>
+            <h2 className="mt-3 text-3xl font-semibold md:text-5xl">Wir suchen Creator mit Potenzial.</h2>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-white/70">
+              Du willst dein Profil strategisch weiterentwickeln, passende Markenkooperationen aufbauen
+              und langfristig professioneller arbeiten? Dann freuen wir uns auf den Austausch.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3 text-sm text-white/70">
+              <span className="rounded-full border border-white/15 px-4 py-2">Beauty</span>
+              <span className="rounded-full border border-white/15 px-4 py-2">Lifestyle</span>
+              <span className="rounded-full border border-white/15 px-4 py-2">Fashion</span>
+              <span className="rounded-full border border-white/15 px-4 py-2">Fitness</span>
+            </div>
+          </div>
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
-    }
+          <div id="contact" className="rounded-[2rem] border border-white/10 bg-white p-8 text-black md:p-10">
+            <p className="text-sm uppercase tracking-[0.3em] text-black/45">Kontakt</p>
+            <h2 className="mt-3 text-3xl font-semibold">Lass uns sprechen.</h2>
+            <p className="mt-4 text-sm leading-7 text-black/65">
+              Interesse an einer Zusammenarbeit oder einem unverbindlichen Austausch? Dann melde dich gerne direkt bei uns.
+            </p>
 
-    .card {
-      background: #0f0f0f;
-      padding: 30px;
-      border-radius: 20px;
-      border: 1px solid #222;
-      transition: 0.3s;
-    }
+            <div className="mt-8 space-y-5 text-sm">
+              <div>
+                <p className="text-black/45">Instagram</p>
+                <p className="mt-1 font-medium">@boldmgment</p>
+              </div>
+              <div>
+                <p className="text-black/45">E-Mail</p>
+                <p className="mt-1 font-medium">creator@bold-management.de</p>
+              </div>
+              <div>
+                <p className="text-black/45">Hinweis</p>
+                <p className="mt-1 leading-7 text-black/70">
+                  Bewerbungen von Creatorinnen und Creator können direkt per E-Mail oder Instagram eingesendet werden.
+                </p>
+              </div>
+            </div>
 
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #444;
-    }
+            <a
+              href="mailto:creator@bold-management.de"
+              className="mt-8 inline-block rounded-2xl bg-black px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+            >
+              Jetzt anfragen
+            </a>
+          </div>
+        </div>
+      </section>
 
-    footer {
-      text-align: center;
-      padding: 60px;
-      color: #555;
-      font-size: 14px;
-    }
-  </style>
-</head>
+      <footer className="border-t border-white/10 px-6 py-8 text-center text-sm text-white/45 md:px-10">
+        © 2026 Bold Management. Alle Rechte vorbehalten.
+      </footer>
 
-<body>
-
-<div class="hero">
-  <h1>BOLD MANAGEMENT</h1>
-  <p class="subtitle">
-    Creator Management & Brand Deals. Wir helfen Creatorn dabei,
-    starke Kooperationen aufzubauen und langfristig als Marke zu wachsen.
-  </p>
-  <a href="mailto:creator@bold-management.de" class="btn">
-    Kontakt aufnehmen
-  </a>
-</div>
-
-<div class="container">
-
-  <h2>Unsere Leistungen</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Brand Deals</h3>
-      <p>Wir verbinden dich mit starken Marken.</p>
+      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10" id="impressum">
+        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10">
+          <h2 className="text-2xl font-semibold">Impressum</h2>
+          <div className="mt-6 space-y-4 text-sm leading-7 text-white/80">
+            <p>
+              <strong>Angaben gemäß § 5 TMG</strong>
+            </p>
+            <p>
+              Bold Management<br />
+              Inhaber: Amin Kühn<br />
+              Linsenbergstraße 9<br />
+              35586 Wetzlar
+            </p>
+            <p>
+              <strong>Kontakt</strong><br />
+              E-Mail: creator@bold-management.de
+            </p>
+            <p>
+              <strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br />
+              Amin Kühn, Anschrift wie oben
+            </p>
+            <p className="text-white/60">
+              Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+            </p>
+          </div>
+        </div>
+      </section>
+    
     </div>
+  );
+}
 
-    <div class="card">
-      <h3>Verhandlungen</h3>
-      <p>Wir holen das Maximum aus deinen Kooperationen heraus.</p>
-    </div>
 
-    <div class="card">
-      <h3>Strategie</h3>
-      <p>Wir bauen dich langfristig als Marke auf.</p>
-    </div>
+      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10" id="datenschutz">
+        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10">
+          <h2 className="text-2xl font-semibold">Datenschutzerklärung</h2>
+          <div className="mt-6 space-y-4 text-sm leading-7 text-white/80">
+            <p>
+              Der Schutz deiner persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten deine Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TMG).
+            </p>
 
-    <div class="card">
-      <h3>Management</h3>
-      <p>Persönliche Betreuung auf Augenhöhe.</p>
-    </div>
-  </div>
+            <p>
+              <strong>Verantwortlicher</strong><br />
+              Bold Management<br />
+              Inhaber: Amin Kühn<br />
+              Linsenbergstraße 9<br />
+              35586 Wetzlar<br />
+              E-Mail: creator@bold-management.de
+            </p>
 
-  <h2>Für Creator</h2>
-  <p>
-    Du möchtest professionell mit Marken arbeiten und dein Profil auf das nächste Level bringen?
-    Dann lass uns gemeinsam wachsen.
-  </p>
+            <p>
+              <strong>Erhebung und Speicherung personenbezogener Daten</strong><br />
+              Wenn du uns per E-Mail oder über Instagram kontaktierst, werden die von dir angegebenen Daten zwecks Bearbeitung deiner Anfrage bei uns gespeichert. Diese Daten geben wir nicht ohne deine Einwilligung weiter.
+            </p>
 
-  <h2>Kontakt</h2>
-  <p>
-    Instagram: @boldmgment <br>
-    E-Mail: creator@bold-management.de
-  </p>
+            <p>
+              <strong>Server-Logfiles</strong><br />
+              Der Provider der Seiten erhebt und speichert automatisch Informationen in sogenannten Server-Logfiles, die dein Browser automatisch übermittelt. Dies sind z. B. Browsertyp, Betriebssystem oder Uhrzeit der Serveranfrage. Diese Daten sind nicht bestimmten Personen zuordenbar.
+            </p>
 
-  <h2>Impressum</h2>
-  <p>
-    Bold Management<br>
-    Inhaber: Amin Kühn<br>
-    Linsenbergstraße 9<br>
-    35586 Wetzlar
-  </p>
+            <p>
+              <strong>Deine Rechte</strong><br />
+              Du hast jederzeit das Recht auf Auskunft über deine gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger sowie den Zweck der Datenverarbeitung. Außerdem hast du ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.
+            </p>
 
-</div>
+            <p>
+              <strong>Kontakt</strong><br />
+              Bei Fragen zum Thema Datenschutz kannst du dich jederzeit unter der oben angegebenen E-Mail-Adresse an uns wenden.
+            </p>
 
-<footer>
-  © 2026 Bold Management
-</footer>
+            <p className="text-white/60">
+              Diese Datenschutzerklärung gilt für alle Inhalte auf unserer Website sowie unsere Kommunikation über E-Mail und Social Media.
+            </p>
+          </div>
+        </div>
+      </section>
 
-</body>
-</html>
