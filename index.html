@@ -6,147 +6,151 @@
   <title>BOLD Management</title>
   <style>
     :root {
-      --primary: #fff;
+      --bg: #0a0a0a;
     }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: #000;
       color: white;
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.9);
+      top: 0; left: 0; right: 0;
+      background: rgba(10,10,10,0.95);
       backdrop-filter: blur(16px);
-      padding: 18px 5%;
+      padding: 20px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-      border-bottom: 1px solid #222;
+      border-bottom: 1px solid #1a1a1a;
     }
 
     .logo {
+      font-size: 28px;
       font-weight: 800;
-      font-size: 26px;
       letter-spacing: -1px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 40px;
-      font-weight: 500;
-    }
-
-    .nav-links a {
-      color: #ddd;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: white;
     }
 
     .hero {
       min-height: 100vh;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), #111;
+      padding: 0 6%;
+      gap: 40px;
     }
 
-    .hero-content {
-      max-width: 860px;
-      padding: 0 20px;
-      z-index: 2;
-    }
-
-    h1 {
-      font-size: clamp(52px, 8vw, 92px);
-      font-weight: 800;
-      letter-spacing: -3.5px;
+    .hero-text h1 {
+      font-size: clamp(48px, 6.5vw, 78px);
       line-height: 1.05;
-      margin-bottom: 24px;
+      letter-spacing: -2.8px;
+      font-weight: 800;
     }
 
-    .subtitle {
-      font-size: 21px;
+    .hero-text p {
+      font-size: 20px;
       color: #bbb;
-      max-width: 620px;
-      margin: 0 auto 50px;
+      margin: 28px 0 40px;
+      max-width: 520px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 18px 48px;
+    .btn-primary {
       background: white;
       color: black;
+      padding: 16px 36px;
+      border-radius: 999px;
       font-weight: 700;
-      font-size: 17px;
-      border-radius: 9999px;
       text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+      margin-right: 12px;
+      transition: all 0.4s;
     }
 
-    .btn:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 20px 40px rgba(255,255,255,0.15);
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      padding: 16px 36px;
+      border: 1px solid #555;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.4s;
     }
 
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 100px 20px;
+    .btn-primary:hover { transform: translateY(-3px); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+    .profile-card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 24px;
+      padding: 32px;
+      height: fit-content;
     }
 
-    h2 {
-      font-size: 42px;
-      font-weight: 700;
-      letter-spacing: -1.5px;
-      margin-bottom: 60px;
-      text-align: center;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
+    .profile-card h3 {
+      font-size: 15px;
+      letter-spacing: 2px;
+      opacity: 0.6;
+      margin-bottom: 8px;
     }
 
     .card {
-      background: #0a0a0a;
-      padding: 42px 34px;
-      border-radius: 28px;
+      background: #111;
       border: 1px solid #222;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.4s;
     }
 
     .card:hover {
-      transform: translateY(-12px);
+      transform: translateY(-8px);
       border-color: #555;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
     }
 
-    .card h3 {
-      font-size: 24px;
-      margin-bottom: 16px;
-      letter-spacing: -0.8px;
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 120px 6% 100px;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 80px;
+    h2 {
+      font-size: 46px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: 70px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+
+    .process-card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    .number {
+      font-size: 14px;
+      opacity: 0.5;
+      margin-bottom: 12px;
     }
   </style>
 </head>
@@ -154,96 +158,104 @@
 
   <nav>
     <div class="logo">BOLD</div>
-    <div class="nav-links">
-      <a href="#leistungen">Leistungen</a>
-      <a href="#creator">Für Creator</a>
-      <a href="#ueber">Über uns</a>
-      <a href="#kontakt">Kontakt</a>
-    </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>BOLD<br>MANAGEMENT</h1>
-      <p class="subtitle">
-        Creator Management &amp; Brand Deals.<br>
-        Wir machen aus starken Creatorn echte Marken.
-      </p>
-      <a href="mailto:creator@bold-management.de" class="btn">
-        Jetzt Kontakt aufnehmen
-      </a>
+    <div class="hero-text">
+      <h1>Creator<br>Management mit<br>klarer Strategie.</h1>
+      <p>Wir unterstützen Creator dabei, starke Markenpartnerschaften aufzubauen, professionell zu wachsen und ihr Potenzial langfristig zu entfalten.</p>
+      
+      <div>
+        <a href="mailto:creator@bold-management.de" class="btn-primary">Jetzt Kontakt aufnehmen</a>
+        <a href="#leistungen" class="btn-secondary">Leistungen ansehen</a>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <h3>AGENTURPROFIL</h3>
+      <h2 style="font-size:42px; margin:16px 0 32px;">BOLD</h2>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="background:#1a1a1a; padding:16px 20px; border-radius:16px;">Creator Management & Brand Partnerships</div>
+        <div style="background:#1a1a1a; padding:16px 20px; border-radius:16px;">Persönlich, modern und langfristig gedacht</div>
+        <div style="background:#1a1a1a; padding:16px 20px; border-radius:16px;">Fokus auf ausgewählte Creator mit echtem Wachstumspotenzial</div>
+      </div>
     </div>
   </section>
 
+  <!-- LEISTUNGEN -->
   <div class="container" id="leistungen">
-    <h2>Unsere Leistungen</h2>
-    <div class="grid">
+    <h2>Was wir für Creator übernehmen</h2>
+    <div class="grid-2">
       <div class="card">
-        <h3>Brand Deals</h3>
-        <p>Wir verbinden dich mit den richtigen Marken und schaffen langfristige, lukrative Partnerschaften.</p>
+        <h3 style="margin-bottom:16px; font-size:24px;">Brand Deals</h3>
+        <p>Wir verbinden Creator mit passenden Marken und schaffen Kooperationen mit langfristigem Potenzial.</p>
       </div>
       <div class="card">
-        <h3>Verhandlungen</h3>
-        <p>Professionelle Verhandlungsführung – wir holen das Maximum für dich raus.</p>
+        <h3 style="margin-bottom:16px; font-size:24px;">Vertragsverhandlungen</h3>
+        <p>Wir verhandeln fair, transparent und mit dem Ziel, den bestmöglichen Wert für unsere Creator herauszuholen.</p>
       </div>
       <div class="card">
-        <h3>Strategie &amp; Markenaufbau</h3>
-        <p>Positionierung, Content-Strategie und langfristiger Markenaufbau.</p>
+        <h3 style="margin-bottom:16px; font-size:24px;">Strategie & Wachstum</h3>
+        <p>Gemeinsam entwickeln wir eine klare Positionierung, damit Creator nachhaltig wachsen können.</p>
       </div>
       <div class="card">
-        <h3>Persönliches Management</h3>
-        <p>Individuelle Betreuung, Karriereplanung und tägliche Unterstützung auf Augenhöhe.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container" id="creator" style="background:#050505;">
-    <h2>Für Creator</h2>
-    <p style="max-width: 680px; margin: 0 auto 60px; text-align:center; font-size:19px; color:#ccc;">
-      Du bist Creator und willst professionell mit Marken arbeiten, bessere Deals abschließen und nachhaltig wachsen? 
-      Dann bist du bei uns genau richtig.
-    </p>
-    <div style="text-align:center;">
-      <a href="mailto:creator@bold-management.de" class="btn">Bewerben als Creator</a>
-    </div>
-  </div>
-
-  <div class="container" id="ueber">
-    <h2>Warum BOLD?</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Persönlich</h3>
-        <p>Keine Massenabfertigung. Jeder Creator bekommt echte 1:1 Betreuung.</p>
-      </div>
-      <div class="card">
-        <h3>Ergebnisorientiert</h3>
-        <p>Wir denken wie Unternehmer – weil wir selbst welche sind.</p>
-      </div>
-      <div class="card">
-        <h3>Netzwerk</h3>
-        <p>Zugang zu starken Marken und anderen Top-Creatorn.</p>
+        <h3 style="margin-bottom:16px; font-size:24px;">Persönliche Betreuung</h3>
+        <p>Bei uns gibt es keine Massenabfertigung – wir arbeiten eng, direkt und langfristig mit ausgewählten Talenten zusammen.</p>
       </div>
     </div>
   </div>
 
-  <div class="container" id="kontakt">
-    <h2>Kontakt</h2>
-    <p style="font-size: 19px; text-align:center; color:#ddd;">
-      Instagram: <strong>@boldmgment</strong><br><br>
-      E-Mail: <strong>creator@bold-management.de</strong>
-    </p>
-    
-    <h2 style="margin-top: 120px;">Impressum</h2>
-    <p style="color:#777; text-align:center;">
-      Bold Management<br>
-      Inhaber: Amin Kühn<br>
-      Linsenbergstraße 9<br>
-      35586 Wetzlar
-    </p>
+  <!-- PROZESS -->
+  <div class="container" style="background:#050505;">
+    <h2>So arbeiten wir zusammen</h2>
+    <div class="process">
+      <div class="process-card">
+        <div class="number">01</div>
+        <h3>Erstes Kennenlernen</h3>
+        <p>In einem unverbindlichen Gespräch schauen wir, ob es menschlich und strategisch passt.</p>
+      </div>
+      <div class="process-card">
+        <div class="number">02</div>
+        <h3>Individuelle Ausrichtung</h3>
+        <p>Wir analysieren Content, Potenzial und Positionierung, um die richtige Richtung festzulegen.</p>
+      </div>
+      <div class="process-card">
+        <div class="number">03</div>
+        <h3>Gemeinsames Wachstum</h3>
+        <p>Anschließend begleiten wir Creator aktiv bei Kooperationen, Verhandlungen und Weiterentwicklung.</p>
+      </div>
+    </div>
   </div>
 
-  <footer style="text-align:center; padding:60px 20px; color:#555; font-size:14px; border-top:1px solid #222;">
-    © 2026 Bold Management • Alle Rechte vorbehalten
+  <!-- FÜR CREATOR + KONTAKT -->
+  <div class="container" style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+    <div>
+      <h2>Für Creator</h2>
+      <h3 style="font-size:32px; margin:24px 0 32px;">Wir suchen Creator mit Potenzial.</h3>
+      <p style="font-size:19px; color:#ccc;">
+        Du willst dein Profil strategisch weiterentwickeln, passende Markenkooperationen aufbauen und langfristig professioneller arbeiten? 
+        Dann freuen wir uns auf den Austausch.
+      </p>
+      <div style="margin-top:40px;">
+        <span style="background:#1a1a1a; padding:8px 20px; border-radius:999px; margin-right:12px;">Beauty</span>
+        <span style="background:#1a1a1a; padding:8px 20px; border-radius:999px; margin-right:12px;">Lifestyle</span>
+        <span style="background:#1a1a1a; padding:8px 20px; border-radius:999px; margin-right:12px;">Fashion</span>
+        <span style="background:#1a1a1a; padding:8px 20px; border-radius:999px;">Fitness</span>
+      </div>
+    </div>
+
+    <div style="background:#111; padding:48px; border-radius:28px;">
+      <h3 style="margin-bottom:12px;">Lass uns sprechen.</h3>
+      <p style="color:#bbb; margin-bottom:32px;">Interesse an einer Zusammenarbeit? Dann melde dich gerne direkt bei uns.</p>
+      
+      <p><strong>Instagram:</strong> @boldmgment</p>
+      <p><strong>E-Mail:</strong> creator@bold-management.de</p>
+    </div>
+  </div>
+
+  <footer style="text-align:center; padding:80px 20px; color:#555; border-top:1px solid #222;">
+    © 2026 Bold Management • Inhaber: Amin Kühn • Linsenbergstraße 9, 35586 Wetzlar
   </footer>
 
 </body>
