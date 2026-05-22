@@ -21,6 +21,7 @@
 
     html { scroll-behavior: smooth; }
 
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -34,49 +35,25 @@
       border-bottom: 1px solid #1a1a1a;
     }
 
-    .logo img {
-      height: 42px;
-      width: auto;
-    }
+    .logo img { height: 42px; width: auto; transition: transform 0.4s; }
+    .logo img:hover { transform: scale(1.08); }
 
-    .nav-links {
-      display: none;
-      gap: 35px;
-      font-weight: 500;
-    }
+    .nav-links { display: none; gap: 35px; font-weight: 500; }
+    .nav-links a { color: #ddd; text-decoration: none; }
+    .nav-links a:hover { color: white; }
 
-    .nav-links a {
-      color: #ddd;
-      text-decoration: none;
-    }
-
-    .hamburger {
-      display: block;
-      cursor: pointer;
-    }
-
+    .hamburger { display: block; cursor: pointer; }
     .hamburger span {
-      display: block;
-      width: 28px;
-      height: 3px;
-      background: white;
-      margin: 6px 0;
-      transition: 0.4s;
+      display: block; width: 28px; height: 3px; background: white;
+      margin: 6px 0; transition: 0.4s; border-radius: 3px;
     }
 
     .mobile-menu {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: #000;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      font-size: 28px;
-      z-index: 999;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: #000; display: none; flex-direction: column;
+      align-items: center; justify-content: center; gap: 40px;
+      font-size: 28px; z-index: 999;
     }
-
     .mobile-menu.active { display: flex; }
 
     /* HERO */
@@ -89,7 +66,6 @@
       gap: 60px;
       text-align: center;
     }
-
     @media (min-width: 900px) {
       .hero { grid-template-columns: 1fr 1fr; text-align: left; padding: 0 6%; }
       .nav-links { display: flex; }
@@ -117,11 +93,47 @@
       text-decoration: none;
       display: inline-block;
       margin: 8px;
-      transition: all 0.4s;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-primary { background: white; color: black; }
+    .btn-primary:hover { transform: translateY(-4px) scale(1.05); }
+    .btn-secondary { background: transparent; color: white; border: 1px solid #555; }
+
+    /* Sections */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 100px 5% 80px;
     }
 
-    .btn-primary { background: white; color: black; }
-    .btn-secondary { background: transparent; color: white; border: 1px solid #555; }
+    h2 {
+      font-size: clamp(32px, 6vw, 46px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+    .card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 20px;
+      padding: 32px 28px;
+      transition: all 0.5s;
+    }
+    .card:hover {
+      transform: translateY(-12px);
+      border-color: #666;
+    }
+
+    .centered-card { max-width: 380px; margin: 40px auto 0; }
   </style>
 </head>
 <body>
@@ -139,9 +151,7 @@
     </div>
 
     <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
   </nav>
 
@@ -171,4 +181,46 @@
       <div style="display:flex; flex-direction:column; gap:14px;">
         <div style="background:#1a1a1a; padding:16px 20px; border-radius:16px;">Creator Management & Brand Partnerships</div>
         <div style="background:#1a1a1a; padding:16px 20px; border-radius:16px;">Persönlich, modern und langfristig gedacht</div>
-        <div style="background:#1
+        <div style="background:#1a1a1a; padding:16px 20px; border-radius:16px;">Fokus auf ausgewählte Creator mit echtem Wachstumspotenzial</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <div class="container" id="leistungen">
+    <h2>Was wir für Creator übernehmen</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3 style="margin-bottom:16px; font-size:23px;">Brand Deals</h3>
+        <p>Wir verbinden Creator mit passenden Marken und schaffen Kooperationen mit langfristigem Potenzial.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:16px; font-size:23px;">Vertragsverhandlungen</h3>
+        <p>Wir verhandeln fair, transparent und mit dem Ziel, den bestmöglichen Wert für unsere Creator herauszuholen.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:16px; font-size:23px;">Strategie & Wachstum</h3>
+        <p>Gemeinsam entwickeln wir eine klare Positionierung, damit Creator nachhaltig wachsen können.</p>
+      </div>
+    </div>
+
+    <div class="centered-card">
+      <div class="card">
+        <h3 style="margin-bottom:16px; font-size:23px;">Persönliche Betreuung</h3>
+        <p>Bei uns gibt es keine Massenabfertigung – wir arbeiten eng, direkt und langfristig mit ausgewählten Talenten zusammen.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Hamburger Menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
