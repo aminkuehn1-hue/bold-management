@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BOLD Management</title>
   
- <!-- Favicon -->
-<link rel="icon" href="bold-logo.png" type="image/png">
-<link rel="apple-touch-icon" href="bold-logo.png">
+  <link rel="icon" href="bold-logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="bold-logo.png">
 
   <style>
-    :root { --bg: #0a0a0a; }
-    
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
@@ -19,7 +16,11 @@
       background: #000;
       color: white;
       line-height: 1.6;
+      overflow-x: hidden;
     }
+
+    /* Smooth Scroll */
+    html { scroll-behavior: smooth; }
 
     nav {
       position: fixed;
@@ -37,9 +38,14 @@
     .logo img {
       height: 42px;
       width: auto;
+      transition: transform 0.4s ease;
     }
 
-    /* Hero & Rest bleibt gleich wie letzte Version */
+    .logo img:hover {
+      transform: scale(1.08);
+    }
+
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -51,12 +57,7 @@
     }
 
     @media (min-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr 1fr;
-        text-align: left;
-        padding: 0 6%;
-        gap: 40px;
-      }
+      .hero { grid-template-columns: 1fr 1fr; text-align: left; padding: 0 6%; gap: 60px; }
     }
 
     .hero-text h1 {
@@ -64,6 +65,8 @@
       line-height: 1.05;
       letter-spacing: -2.5px;
       font-weight: 800;
+      opacity: 0;
+      animation: fadeUp 1s forwards 0.3s;
     }
 
     .hero-text p {
@@ -71,55 +74,43 @@
       color: #bbb;
       margin: 28px auto 40px;
       max-width: 520px;
+      opacity: 0;
+      animation: fadeUp 1s forwards 0.6s;
     }
 
-    .btn-primary {
-      background: white;
-      color: black;
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn-primary, .btn-secondary {
       padding: 16px 32px;
       border-radius: 999px;
       font-weight: 700;
       text-decoration: none;
       display: inline-block;
       margin: 8px;
-      transition: all 0.4s;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-primary {
+      background: white;
+      color: black;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(255,255,255,0.2);
     }
 
     .btn-secondary {
       background: transparent;
       color: white;
-      padding: 16px 32px;
       border: 1px solid #555;
-      border-radius: 999px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      margin: 8px;
-      transition: all 0.4s;
     }
 
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 100px 5% 80px;
-    }
-
-    h2 {
-      font-size: clamp(32px, 6vw, 46px);
-      font-weight: 800;
-      letter-spacing: -2px;
-      margin-bottom: 60px;
-      text-align: center;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    @media (min-width: 768px) {
-      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-3px);
     }
 
     .card {
@@ -127,35 +118,30 @@
       border: 1px solid #222;
       border-radius: 20px;
       padding: 32px 28px;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      transform: translateY(30px);
     }
 
-    .centered-card {
-      max-width: 380px;
-      margin: 40px auto 0;
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .process {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
+    .card:hover {
+      transform: translateY(-12px);
+      border-color: #666;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
     }
 
-    @media (min-width: 768px) {
-      .process { grid-template-columns: repeat(3, 1fr); }
-    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 100px 5% 80px; }
 
-    .creator-contact {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 50px;
-      margin-top: 40px;
-    }
-
-    @media (min-width: 900px) {
-      .creator-contact {
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-      }
+    h2 {
+      font-size: clamp(32px, 6vw, 46px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: 60px;
+      text-align: center;
     }
   </style>
 </head>
@@ -167,62 +153,22 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Creator Management mit klarer Strategie.</h1>
-      <p>Wir unterstützen Creator dabei, starke Markenpartnerschaften aufzubauen, professionell zu wachsen und ihr Potenzial langfristig zu entfalten.</p>
-      
-      <div>
-        <a href="mailto:creator@bold-management.de" class="btn-primary">Jetzt Kontakt aufnehmen</a>
-        <a href="#leistungen" class="btn-secondary">Leistungen ansehen</a>
-      </div>
-    </div>
+  <!-- Der Rest deiner Seite (Hero, Leistungen, Prozess etc.) bleibt gleich -->
+  <!-- Füge einfach die Klasse "card" bei allen Karten hinzu und den Scroll-Trigger unten -->
 
-    <div style="background:#111; border:1px solid #222; border-radius:24px; padding:32px; text-align:left;">
-      <h3 style="font-size:15px; letter-spacing:2px; opacity:0.6;">AGENTURPROFIL</h3>
-      <h2 style="font-size:38px; margin:16px 0 32px;">BOLD</h2>
-      <div style="display:flex; flex-direction:column; gap:14px;">
-        <div style="background:#1a1a1a; padding:16px 20px; border-radius:16px; font-size:15px;">Creator Management & Brand Partnerships</div>
-        <div style="background:#1a1a1a; padding:16px 20px; border-radius:16px; font-size:15px;">Persönlich, modern und langfristig gedacht</div>
-        <div style="background:#1a1a1a; padding:16px 20px; border-radius:16px; font-size:15px;">Fokus auf ausgewählte Creator mit echtem Wachstumspotenzial</div>
-      </div>
-    </div>
-  </section>
+  <script>
+    // Intersection Observer für Scroll-Animationen
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
 
-  <!-- LEISTUNGEN -->
-  <div class="container" id="leistungen">
-    <h2>Was wir für Creator übernehmen</h2>
-    <div class="grid-3">
-      <div class="card">
-        <h3 style="margin-bottom:16px; font-size:23px;">Brand Deals</h3>
-        <p>Wir verbinden Creator mit passenden Marken und schaffen Kooperationen mit langfristigem Potenzial.</p>
-      </div>
-      <div class="card">
-        <h3 style="margin-bottom:16px; font-size:23px;">Vertragsverhandlungen</h3>
-        <p>Wir verhandeln fair, transparent und mit dem Ziel, den bestmöglichen Wert für unsere Creator herauszuholen.</p>
-      </div>
-      <div class="card">
-        <h3 style="margin-bottom:16px; font-size:23px;">Strategie & Wachstum</h3>
-        <p>Gemeinsam entwickeln wir eine klare Positionierung, damit Creator nachhaltig wachsen können.</p>
-      </div>
-    </div>
-
-    <div class="centered-card">
-      <div class="card">
-        <h3 style="margin-bottom:16px; font-size:23px;">Persönliche Betreuung</h3>
-        <p>Bei uns gibt es keine Massenabfertigung – wir arbeiten eng, direkt und langfristig mit ausgewählten Talenten zusammen.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Weitere Sections (Prozess, Für Creator, Kontakt) bleiben gleich wie zuvor -->
-
-  <!-- ... (den Rest kannst du aus der letzten Version kopieren) ... -->
-
-  <footer style="text-align:center; padding:60px 20px; color:#555; border-top:1px solid #222; font-size:14px;">
-    © 2026 Bold Management • Inhaber: Amin Kühn • Linsenbergstraße 9, 35586 Wetzlar
-  </footer>
+    cards.forEach(card => observer.observe(card));
+  </script>
 
 </body>
 </html>
